@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import MobileDiv from "../Mobile";
 const MonkeyLearn = require('monkeylearn')
 
@@ -9,19 +9,34 @@ const MonkeyLearn = require('monkeylearn')
 //     console.log(res.body)
 // })
 
-const Mood = (props) => {
+const Mood = () => {
+
+  const [mood, setMood] = useState('')
+
+  const handleMood = (mood) => {
+    console.log(`what a ${mood} mood`);
+  }
+
   return (
     <MobileDiv>
+      <div className="mood-question" style={{textAlign: 'center'}}>
       How are you doing today?
-      <div className="mood-container">
-        <div className="mood-button" onClick={() => props.handleMood("happy")}>
-          <img alt="happy" />
-        </div>
-        <div className="mood-button" onClick={() => props.handleMood("neutral")}>
-          <img alt="neutral" />
-        </div>
-        <div className="mood-button" onClick={() => props.handleMood("sad")}>
-          <img alt="sad" />
+        <div className="mood-container" style={{display: 'flex', justifyContent: 'center', gap: '5%'}}>
+          <div className="mood-button">
+            <button onClick={() => handleMood("great")}>GREAT</button>
+          </div>
+          <div className="mood-button" onClick={() => handleMood("good")}>
+            <button>GOOD</button>
+          </div>
+          <div className="mood-button" onClick={() => handleMood("meh")}>
+            <button>MEH</button>
+          </div>
+          <div className="mood-button" onClick={() => handleMood("bad")}>
+            <button>BAD</button>
+          </div>
+          <div className="mood-button" onClick={() => handleMood("awful")}>
+            <button>AWFUL</button>
+          </div>
         </div>
       </div>
     </MobileDiv>
