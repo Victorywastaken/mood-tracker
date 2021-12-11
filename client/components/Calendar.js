@@ -135,37 +135,6 @@ let moodData = [{
   "date": "2021-12-31"
 }]
 
-let data = [
-  {
-    day: '2015-01-01',
-    value: 100
-  },
-  {
-    day: "2015-03-06",
-    value: 200
-  },
-  {
-    day: "2016-03-06",
-    value: 300
-  },
-  {
-    day: "2016-06-28",
-    value: 400
-  },
-  {
-    day: "2016-07-21",
-    value: 420
-  },
-  {
-    day: "2016-07-22",
-    value: 500
-  },
-  {
-    day: "2017-07-22",
-    value: 392
-  }
-];
-
 moodData = moodData.map(mood => {
   return {
     day: mood.date,
@@ -190,32 +159,38 @@ const Calendar = () => {
       setLoaded(true)
   })
 
+  const theme = {
+    fontSize: '16px',
+  }
 
   return (
     !loaded
     ?
     <div>Loading...</div>
     :
-    <div style={{height: '78vh'}}>
+    <div style={{height: '40vh'}}>
       <div className='calendar-container' style={{display: "flex", justifyContent: "center", gap: '2vh'}}>
+        <button onClick={() => setYear(year - 1)}>Previous Year</button>
         <div className="calendar-legend-item" style={{backgroundColor: '#F2223B'}}>awful</div>
         <div className="calendar-legend-item" style={{backgroundColor: '#F8922F'}}>bad</div>
         <div className="calendar-legend-item" style={{backgroundColor: '#50ABCE'}}>meh</div>
         <div className="calendar-legend-item" style={{backgroundColor: '#85C428'}}>good</div>
         <div className="calendar-legend-item" style={{backgroundColor: '#15B892'}}>great</div>
+        <button onClick={() => setYear(year + 1)}>Next Year</button>
       </div>
     <ResponsiveCalendar
         data={moodData}
-        from="2022"
-        to="2022"
+        from={year.toString()}
+        to={year.toString()}
         emptyColor="#eeeeee"
         colors={['#F2223B', '#F8922F', '#50ABCE', '#85C428', '#15B892']}
         minValue="auto"
         margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
         yearSpacing={70}
-        monthBorderColor="#ffffff"
-        dayBorderWidth={2}
+        monthBorderColor="#bfbfbf"
+        dayBorderWidth={1}
         dayBorderColor="#ffffff"
+        theme={theme}
         tooltip={function(e){
           console.log(e);
           return e.data.mood
