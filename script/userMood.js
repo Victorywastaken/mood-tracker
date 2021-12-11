@@ -1,0 +1,125 @@
+module.exports = [{
+  "userId": 2,
+  "mood": "meh",
+  "date": "2021-12-01"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-02"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-03"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-04"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-05"
+}, {
+  "userId": 2,
+  "mood": "meh",
+  "date": "2021-12-06"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-07"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-08"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-09"
+}, {
+  "userId": 2,
+  "mood": "great",
+  "date": "2021-12-10"
+}, {
+  "userId": 2,
+  "mood": "awful",
+  "date": "2021-12-11"
+}, {
+  "userId": 2,
+  "mood": "great",
+  "date": "2021-12-12"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-13"
+}, {
+  "userId": 2,
+  "mood": "awful",
+  "date": "2021-12-14"
+}, {
+  "userId": 2,
+  "mood": "awful",
+  "date": "2021-12-15"
+}, {
+  "userId": 2,
+  "mood": "meh",
+  "date": "2021-12-16"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-17"
+}, {
+  "userId": 2,
+  "mood": "great",
+  "date": "2021-12-18"
+}, {
+  "userId": 2,
+  "mood": "meh",
+  "date": "2021-12-19"
+}, {
+  "userId": 2,
+  "mood": "great",
+  "date": "2021-12-20"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-21"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-22"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-23"
+}, {
+  "userId": 2,
+  "mood": "awful",
+  "date": "2021-12-24"
+}, {
+  "userId": 2,
+  "mood": "meh",
+  "date": "2021-12-25"
+}, {
+  "userId": 2,
+  "mood": "great",
+  "date": "2021-12-26"
+}, {
+  "userId": 2,
+  "mood": "good",
+  "date": "2021-12-27"
+}, {
+  "userId": 2,
+  "mood": "bad",
+  "date": "2021-12-28"
+}, {
+  "userId": 2,
+  "mood": "great",
+  "date": "2021-12-29"
+}, {
+  "userId": 2,
+  "mood": "awful",
+  "date": "2021-12-30"
+}, {
+  "userId": 2,
+  "mood": "awful",
+  "date": "2021-12-31"
+}]
