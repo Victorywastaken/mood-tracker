@@ -3,6 +3,20 @@ const { models: { Mood } } = require('../db');
 const { requireToken } = require('./middleware/gateGuardian');
 module.exports = router;
 
+router.get('/', requireToken, async (req, res, next) => {
+  try {
+    const { user } = req.body;
+    let moods = await Mood.findAll({
+      where: {
+        userId: user.id
+      }
+    });
+    res.send(moods);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/', requireToken, async (req, res, next) => {
   try {
     const { mood, description, user } = req.body;

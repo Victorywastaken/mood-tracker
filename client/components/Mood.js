@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import MobileDiv from "../Mobile";
-import { moodThunk } from "../store/mood";
+import { setMoodThunk } from "../store/mood";
 const MonkeyLearn = require('monkeylearn')
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
@@ -33,7 +33,7 @@ const Mood = () => {
   }
 
   const handleSubmit = () => {
-    dispatch(moodThunk({mood, description}));
+    dispatch(setMoodThunk({mood, description}));
     console.log('thanks for submitting');
   }
 
