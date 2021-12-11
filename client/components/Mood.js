@@ -12,7 +12,18 @@ const MonkeyLearn = require('monkeylearn')
 const Mood = (props) => {
   return (
     <MobileDiv>
-      Hello World
+      How are you doing today?
+      <div className="mood-container">
+        <div className="mood-button" onClick={() => props.handleMood("happy")}>
+          <img alt="happy" />
+        </div>
+        <div className="mood-button" onClick={() => props.handleMood("neutral")}>
+          <img alt="neutral" />
+        </div>
+        <div className="mood-button" onClick={() => props.handleMood("sad")}>
+          <img alt="sad" />
+        </div>
+      </div>
     </MobileDiv>
   )
 }

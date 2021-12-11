@@ -15,3 +15,5 @@ const Mood = db.define('mood', {
     defaultValue: Sequelize.NOW
   }
 });
+
+module.exports = Mood;
