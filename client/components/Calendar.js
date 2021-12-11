@@ -63,7 +63,6 @@ const Calendar = () => {
         dayBorderColor="#ffffff"
         theme={{fontSize: '16px',}}
         tooltip={function(e){
-          console.log(e);
           return <div style={{backgroundColor: 'white', padding: '20px'}}>mood: {e.data.mood}</div>
         }}
         legends={[

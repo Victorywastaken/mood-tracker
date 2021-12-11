@@ -16,13 +16,13 @@ const Mood = db.define('mood', {
   }
 });
 
-Mood.beforeValidate((mood) => {
-  //if mood was already created today, don't allow it to be created again
-  if(mood.date){
-    if (mood.date.getDate() === new Date().getDate()) {
-      throw new Error('You already created a mood for today!')
-    }
-  }
-})
+// Mood.beforeValidate((mood) => {
+//   //if mood was already created today, don't allow it to be created again
+//   if(mood.date){
+//     if (mood.date.getDate() === new Date().getDate()) {
+//       throw new Error('You already created a mood for today!')
+//     }
+//   }
+// })
 
 module.exports = Mood;

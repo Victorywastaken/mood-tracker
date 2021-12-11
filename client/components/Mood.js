@@ -47,7 +47,10 @@ const Mood = () => {
   return (
     <MobileDiv>
       <div className="mood-question" style={{textAlign: 'center'}}>
-      How are you doing today?
+      {todayMood
+      ? <p>Your mood for today was submitted already. Your mood today was {todayMood.mood}</p>
+      : <p>How are you feeling today?</p>
+      }
         <div className="mood-container" style={{display: 'flex', justifyContent: 'center', gap: '5%'}}>
           <div className="mood-button">
             <button onClick={() => handleMood("great")}>GREAT</button>

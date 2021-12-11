@@ -3,6 +3,7 @@ const db = require('../db')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const axios = require('axios');
+const Activity = require('./Activity')
 
 const SALT_ROUNDS = 5;
 
@@ -69,6 +70,30 @@ const hashPassword = async(user) => {
   }
 }
 
+const createActivities = async(user) => {
+  const activities = [
+    'family', 'friends', 'date',
+    'exercise', 'sport', 'relax',
+    'movies', 'games', 'reading',
+    'music', 'food', 'travel',
+    'work', 'shopping'
+  ]
+  for (const activity of activities) {
+    await Activity.create({
+      name: activity,
+      userId: user.id,
+      include: [{
+        model: User,
+        as: 'users',
+        where: {
+          id: user.id
+        }
+      }]
+    })
+  }
+}
+
 User.beforeCreate(hashPassword)
 User.beforeUpdate(hashPassword)
 User.beforeBulkCreate(users => Promise.all(users.map(hashPassword)))
+User.afterCreate(createActivities)

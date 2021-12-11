@@ -9,21 +9,6 @@ const Activity = db.define('activity', {
       notEmpty: true
     }
   },
-  description: {
-    type: Sequelize.TEXT,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  date: {
-    type: Sequelize.DATEONLY,
-    defaultValue: Sequelize.NOW,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
 })
 
 module.exports = Activity
