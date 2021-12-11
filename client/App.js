@@ -1,15 +1,15 @@
 import React from 'react'
-import MyWrapperComponent from './Mobile'
+import MobileDiv from './Mobile'
 import Navbar from './components/Navbar'
 import Routes from './Routes'
 
 const App = () => {
   return (
 
-      <MyWrapperComponent>
+      <MobileDiv>
         <Navbar />
         <Routes />
-      </MyWrapperComponent>
+      </MobileDiv>
 
   )
 }
