@@ -22,10 +22,13 @@
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
+    "@nivo/calendar": "^0.74.0",
+    "@nivo/core": "^0.74.0",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "compression": "^1.7.3",
     "css-loader": "^6.5.1",
+    "d3": "^7.2.1",
     "express": "^4.16.4",
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
@@ -33,6 +36,7 @@
     "morgan": "^1.9.1",
     "pg": "^8.5.1",
     "react": "^16.14.0",
+    "react-calendar-heatmap": "^1.8.1",
     "react-responsive": "^9.0.0-beta.5",
     "sequelize": "^6.3.5",
     "style-loader": "^3.3.1"
