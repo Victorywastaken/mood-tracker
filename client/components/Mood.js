@@ -13,11 +13,28 @@ const MonkeyLearn = require('monkeylearn')
 
 const Mood = () => {
   const dispatch = useDispatch();
-
   const [mood, setMood] = useState('')
+  const [description, setDescription] = useState('')
+
+  const moodDescriptionObj = {
+    'great': 'I am great',
+    'good': 'I am good',
+    'meh': 'I am meh',
+    'bad': 'I am bad',
+    'awful': 'I am awful',
+  }
+
+  const handleChange = (e) => {
+    setDescription(e.target.value)
+  }
 
   const handleMood = (mood) => {
-    dispatch(moodThunk(mood));
+    setMood(mood)
+  }
+
+  const handleSubmit = () => {
+    dispatch(moodThunk({mood, description}));
+    console.log('thanks for submitting');
   }
 
   return (
@@ -42,6 +59,22 @@ const Mood = () => {
           </div>
         </div>
       </div>
+      { mood
+        ?
+        <>
+          <h2>{mood}</h2>
+          <h4>{moodDescriptionObj[mood]}</h4>
+          <section>Would you like to add some comments? (optional)</section>
+          <textarea
+            type='textarea' rows="4" cols="50" placeholder="Comments go here"
+            value={description}
+            onChange={handleChange}
+          />
+          <br/>
+          <input type="submit" value="Submit" onClick={handleSubmit}/>
+        </>
+        :
+        null }
     </MobileDiv>
   )
 }

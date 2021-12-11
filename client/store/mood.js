@@ -9,7 +9,7 @@ const SET_MOOD = 'SET_MOOD'
 //Action Creators
 const setMood = mood => ({type: SET_MOOD, mood})
 
-export const moodThunk = (mood) => async dispatch => {
+export const moodThunk = (moodObj) => async dispatch => {
   const token = localStorage.getItem(TOKEN);
 
   const config = {
@@ -17,12 +17,12 @@ export const moodThunk = (mood) => async dispatch => {
   };
 
   const bodyParameters = {
-    mood
+    moodObj
   };
 
   try {
     if(token){
-      const res = await axios.post('/api/mood', {mood}, {headers: {token}});
+      const res = await axios.post('/api/mood', moodObj, {headers: {token}});
       return dispatch(setMood(res.data))
     } else {
       history.push('/login')
