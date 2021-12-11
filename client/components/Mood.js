@@ -1,5 +1,7 @@
 import React, {useState} from "react";
+import { useDispatch } from "react-redux";
 import MobileDiv from "../Mobile";
+import { moodThunk } from "../store/mood";
 const MonkeyLearn = require('monkeylearn')
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
@@ -10,11 +12,12 @@ const MonkeyLearn = require('monkeylearn')
 // })
 
 const Mood = () => {
+  const dispatch = useDispatch();
 
   const [mood, setMood] = useState('')
 
   const handleMood = (mood) => {
-    console.log(`what a ${mood} mood`);
+    dispatch(moodThunk(mood));
   }
 
   return (
