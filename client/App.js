@@ -1,14 +1,16 @@
 import React from 'react'
-
+import MyWrapperComponent from './Mobile'
 import Navbar from './components/Navbar'
 import Routes from './Routes'
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Routes />
-    </div>
+
+      <MyWrapperComponent>
+        <Navbar />
+        <Routes />
+      </MyWrapperComponent>
+
   )
 }
 
