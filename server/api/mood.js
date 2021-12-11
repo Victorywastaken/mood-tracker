@@ -17,6 +17,21 @@ router.get('/', requireToken, async (req, res, next) => {
   }
 });
 
+router.get('/today', requireToken, async (req, res, next) => {
+  try {
+    const { user } = req.body;
+    let todaysMoods = await Mood.findOne({
+      where: {
+        userId: user.id,
+        date: new Date().toISOString().slice(0, 10)
+      }
+    });
+    res.send(todaysMoods);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/', requireToken, async (req, res, next) => {
   try {
     const { mood, description, user } = req.body;

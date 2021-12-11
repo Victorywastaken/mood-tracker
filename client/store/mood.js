@@ -7,6 +7,7 @@ const TOKEN = 'token'
 const SET_MOOD = 'SET_MOOD'
 const GET_MOOD = 'GET_MOOD'
 
+
 //Action Creators
 const getMood = mood => ({type: GET_MOOD, mood})
 const setMood = mood => ({type: SET_MOOD, mood})

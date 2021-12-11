@@ -1,7 +1,8 @@
-import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import MobileDiv from "../Mobile";
 import { setMoodThunk } from "../store/mood";
+import { getTodaysMoodThunk } from "../store/singleMood";
 const MonkeyLearn = require('monkeylearn')
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
@@ -15,6 +16,12 @@ const Mood = () => {
   const dispatch = useDispatch();
   const [mood, setMood] = useState('')
   const [description, setDescription] = useState('')
+
+  const todayMood = useSelector(state => state.singleMood);
+
+  useEffect(() => {
+    dispatch(getTodaysMoodThunk());
+  }, []);
 
   const moodDescriptionObj = {
     'great': 'I am great',
