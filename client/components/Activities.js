@@ -5,6 +5,7 @@ import { addActivitiesThunk } from '../store/activities';
 const Activities = () => {
   const dispatch = useDispatch();
   const activities = useSelector(state => state.activitiesCategory);
+  const todaysActivities = useSelector(state => state.singleActivity);
   const [checkedState, setCheckedState] = useState(new Array(activities.length).fill(false)) || [];
 
 
@@ -31,6 +32,16 @@ const Activities = () => {
 
   return (
     <div className="activities-container">
+      {todaysActivities
+      ? <div className="activities-container-inner">
+        <p>Your activities for today:
+          {todaysActivities.map((item, index) => {
+            return <span key={index}>{item.name} </span>
+          })}
+        </p>
+      </div>
+      : null
+      }
       <h3 style={{textAlign: 'center'}}>Select Activities</h3>
       <ul className="activities-list" style={{ listStyle: 'none',
   padding: 0, textAlign: 'center'}}>
