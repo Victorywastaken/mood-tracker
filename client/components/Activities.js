@@ -17,14 +17,18 @@ const Activities = () => {
   }
 
   const handleSubmit = () => {
-
+    console.log('hello');
     let activityData = [];
     for(let i = 0; i < checkedState.length; i++) {
       if(checkedState[i]) {
         activityData.push({name: activities[i].name});
       }
     }
-    dispatch(addActivitiesThunk(activityData));
+    let activityObject = {
+      activities: activityData
+    }
+    // console.log(activityData);
+    dispatch(addActivitiesThunk(activityObject));
   }
 
   return (

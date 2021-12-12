@@ -48,10 +48,11 @@ export const getActivitiesThunk = (isLoggedIn) => async dispatch => {
 export const addActivitiesThunk = (activity) => async dispatch => {
   try {
     const token = localStorage.getItem(TOKEN);
-    const res = await axios.post('/api/activity', activity, {
-      headers: { token, activity }
+    const res = await axios.post('/api/activity/batch', activity, {
+      headers: { token }
     });
     dispatch(addActivity(res.data));
+    history.push('/home');
   } catch (err) {
   console.log(err);
   }
