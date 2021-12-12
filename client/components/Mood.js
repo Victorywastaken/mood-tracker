@@ -4,7 +4,6 @@ import MobileDiv from "../Mobile";
 import { setMoodThunk } from "../store/mood";
 import { getTodaysMoodThunk } from "../store/singleMood";
 const MonkeyLearn = require('monkeylearn')
-import { FaBed } from "react-icons/fa";
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
 // let model_id = 'cl_pi3C7JiL'
@@ -19,6 +18,7 @@ const Mood = () => {
   const [description, setDescription] = useState('')
 
   const todayMood = useSelector(state => state.singleMood);
+  const allMoods = useSelector(state => state.mood);
 
   useEffect(() => {
     dispatch(getTodaysMoodThunk());
@@ -39,6 +39,24 @@ const Mood = () => {
   const handleMood = (mood) => {
     setMood(mood)
   }
+
+  const moodCount = {
+    'great': 0,
+    'good': 0,
+    'meh': 0,
+    'bad': 0,
+    'awful': 0,
+  }
+
+  const moodTally = () => {
+    for (let i = 0; i < allMoods.length; i++) {
+      const currentMood = allMoods[i].mood;
+      moodCount[currentMood] += 1
+    }
+    return moodCount
+  }
+
+  console.log(moodTally());
 
   const handleSubmit = () => {
     dispatch(setMoodThunk({mood, description}));

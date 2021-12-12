@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import { Login, Signup } from './components/AuthForm';
 import Calendar from './components/Calendar';
+import MyResponsivePie from './components/PieGraph';
 import Home from './components/Home';
 import Mood from './components/Mood';
 import Activities from './components/Activities';
@@ -27,6 +28,7 @@ class Routes extends Component {
             <Route path="/mood" component={Mood} />
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />
+            <Route path="/pie" component={MyResponsivePie} />
           </Switch>
         ) : (
           <Switch>

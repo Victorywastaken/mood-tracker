@@ -19,8 +19,6 @@ router.get('/', requireToken, async (req, res, next) => {
 
 router.post('/', requireToken, async (req, res, next) => {
   try {
-    console.log(req.headers.activity);
-    console.log(req.headers.activity[0]);
     const { user, activity } = req.body;
   } catch (error) {
     next(error);

@@ -25,6 +25,7 @@
     "@nivo/calendar": "^0.74.0",
     "@nivo/core": "^0.74.0",
     "@nivo/legends": "^0.74.0",
+    "@nivo/pie": "^0.74.0",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "compression": "^1.7.3",
