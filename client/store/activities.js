@@ -45,6 +45,18 @@ export const getActivitiesThunk = (isLoggedIn) => async dispatch => {
   }
 };
 
+export const addActivitiesThunk = (activity) => async dispatch => {
+  try {
+    const token = localStorage.getItem(TOKEN);
+    const res = await axios.post('/api/activity', activity, {
+      headers: { token, activity }
+    });
+    dispatch(addActivity(res.data));
+  } catch (err) {
+  console.log(err);
+  }
+};
+
 //reducer
 export default function(state = [], action) {
   switch (action.type) {

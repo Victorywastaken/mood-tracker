@@ -5,6 +5,7 @@ import { Login, Signup } from './components/AuthForm';
 import Calendar from './components/Calendar';
 import Home from './components/Home';
 import Mood from './components/Mood';
+import Activities from './components/Activities';
 import {me} from './store'
 
 /**
@@ -25,6 +26,7 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route path="/mood" component={Mood} />
             <Route path="/calendar" component={Calendar} />
+            <Route path="/activities" component={Activities} />
           </Switch>
         ) : (
           <Switch>

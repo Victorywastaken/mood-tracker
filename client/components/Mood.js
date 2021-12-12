@@ -4,6 +4,7 @@ import MobileDiv from "../Mobile";
 import { setMoodThunk } from "../store/mood";
 import { getTodaysMoodThunk } from "../store/singleMood";
 const MonkeyLearn = require('monkeylearn')
+import { FaBed } from "react-icons/fa";
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
 // let model_id = 'cl_pi3C7JiL'
