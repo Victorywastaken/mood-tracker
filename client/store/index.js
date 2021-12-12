@@ -5,10 +5,11 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import auth from './auth'
 import mood from './mood'
 import activities from './activities'
-import singleMood from './singleMood'
 import activitiesCategory from './activitiesCategory'
+import singleMood from './singleMood'
+import singleActivity from './singleActivity'
 
-const reducer = combineReducers({ auth, mood, singleMood, activities, activitiesCategory })
+const reducer = combineReducers({ auth, mood, singleMood, activities, activitiesCategory, singleActivity })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

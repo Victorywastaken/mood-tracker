@@ -4,8 +4,10 @@ import MobileDiv from './Mobile'
 import Navbar from './components/Navbar'
 import Routes from './Routes'
 import { getMoodThunk } from './store/mood'
+import { getTodaysMoodThunk } from "./store/singleMood";
 import { getCategoriesThunk } from './store/activitiesCategory'
 import { getActivitiesThunk } from './store/activities'
+import { getTodaysActivityThunk } from './store/singleActivity'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -15,6 +17,8 @@ const App = () => {
     dispatch(getMoodThunk(isLoggedIn))
     dispatch(getCategoriesThunk(isLoggedIn))
     dispatch(getActivitiesThunk(isLoggedIn))
+    dispatch(getTodaysMoodThunk())
+    dispatch(getTodaysActivityThunk())
   }, [isLoggedIn])
   return (
 

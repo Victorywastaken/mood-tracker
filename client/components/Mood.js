@@ -20,10 +20,6 @@ const Mood = () => {
   const todayMood = useSelector(state => state.singleMood);
   const allMoods = useSelector(state => state.mood);
 
-  useEffect(() => {
-    dispatch(getTodaysMoodThunk());
-  }, []);
-
   const moodDescriptionObj = {
     'great': 'I am great',
     'good': 'I am good',
