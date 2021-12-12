@@ -10,13 +10,15 @@ const GET_MOOD = "FETCH_TODAYS_MOOD";
 const getTodaysMood = (mood) => ({ type: GET_MOOD, mood });
 
 //Thunks
-export const getTodaysMoodThunk = () => async (dispatch) => {
+export const getTodaysMoodThunk = (isLoggedIn) => async (dispatch) => {
   try {
-    const token = localStorage.getItem(TOKEN);
-    const res = await axios.get("/api/mood/today", {
-      headers: { token },
-    });
-    dispatch(getTodaysMood(res.data));
+    if (isLoggedIn) {
+      const token = localStorage.getItem(TOKEN);
+      const res = await axios.get("/api/mood/today", {
+        headers: { token },
+      });
+      dispatch(getTodaysMood(res.data));
+    }
   } catch (err) {
     console.error(err);
   }

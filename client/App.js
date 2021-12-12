@@ -12,6 +12,8 @@ import { getTodaysActivityThunk } from './store/singleActivity'
 const App = () => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.auth.id)
+  const currentMood = useSelector(state => state.singleMood)
+  const currentActivity = useSelector(state => state.singleActivity)
 
   useEffect(() => {
     dispatch(getMoodThunk(isLoggedIn))
@@ -24,7 +26,7 @@ const App = () => {
 
       <MobileDiv>
         <Navbar />
-        <Routes />
+        <Routes currentMood={currentMood} currentActivity={currentActivity}/>
       </MobileDiv>
 
   )

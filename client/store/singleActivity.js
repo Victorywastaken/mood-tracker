@@ -13,13 +13,15 @@ const getTodaysActivity = (activity) => ({
 });
 
 //Thunks
-export const getTodaysActivityThunk = () => async (dispatch) => {
+export const getTodaysActivityThunk = (isLoggedIn) => async (dispatch) => {
   try {
-    const token = localStorage.getItem(TOKEN);
-    const res = await axios.get("/api/activity/today", {
-      headers: { token },
-    });
-    dispatch(getTodaysActivity(res.data));
+    if (isLoggedIn) {
+      const token = localStorage.getItem(TOKEN);
+      const res = await axios.get("/api/activity/today", {
+        headers: { token },
+      });
+      dispatch(getTodaysActivity(res.data));
+    }
   } catch (err) {
     console.error(err);
   }

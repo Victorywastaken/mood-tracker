@@ -13,19 +13,25 @@ import {me} from './store'
  * COMPONENT
  */
 class Routes extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.loadInitialData()
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, currentMood, currentActivity } = this.props
 
     return (
       <div>
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
-            <Route path="/mood" component={Mood} />
+            <Route path="/mood">
+              {currentMood ? <Redirect to="/home" /> : <Mood/>}
+            </Route>
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />
             <Route path="/pie" component={MyResponsivePie} />

@@ -19,6 +19,7 @@ const Calendar = () => {
 
   const [loaded , setLoaded] = useState(false)
   const [year, setYear] = useState(new Date().getFullYear() + 1);
+  const [month, setMonth] = useState(new Date().getMonth());
 
   const moods = useSelector(state => state.mood)
 
@@ -62,21 +63,34 @@ const Calendar = () => {
         dayBorderWidth={1}
         dayBorderColor="#ffffff"
         theme={{fontSize: '16px',}}
+        legends={[
+            {
+                anchor: 'bottom',
+                direction: 'row',
+                justify: false,
+                translateX: 0,
+                translateY: 56,
+                itemsSpacing: 0,
+                itemWidth: 100,
+                itemHeight: 18,
+                itemTextColor: '#999',
+                itemDirection: 'left-to-right',
+                itemOpacity: 1,
+                symbolSize: 18,
+                symbolShape: 'circle',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemTextColor: '#000'
+                        }
+                    }
+                ]
+            }
+        ]}
         tooltip={function(e){
           return <div style={{backgroundColor: 'white', padding: '20px'}}>mood: {e.data.mood}</div>
         }}
-        legends={[
-            {
-                anchor: 'bottom-right',
-                direction: 'row',
-                translateY: 36,
-                itemCount: 4,
-                itemWidth: 42,
-                itemHeight: 36,
-                itemsSpacing: 14,
-                itemDirection: 'right-to-left'
-            }
-        ]}
     />
   </div>
   )

@@ -4,6 +4,7 @@ import MobileDiv from "../Mobile";
 import { setMoodThunk } from "../store/mood";
 import { getTodaysMoodThunk } from "../store/singleMood";
 const MonkeyLearn = require('monkeylearn')
+import history from '../history';
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
 // let model_id = 'cl_pi3C7JiL'
@@ -58,6 +59,14 @@ const Mood = () => {
     dispatch(setMoodThunk({mood, description}));
     console.log('thanks for submitting');
   }
+
+  useState(() => {
+  if(todayMood.length > 0) {
+    history.push('/home');
+    console.log(todayMood)
+  }
+}, [todayMood])
+
 
   return (
     <MobileDiv>
