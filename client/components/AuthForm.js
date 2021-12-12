@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authenticate } from "../store";
-import { FaUserAlt, FaUnlockAlt, FaChevronRight } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { FaUserAlt, FaUnlockAlt, FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import "./AuthForm.css";
 
 /**
@@ -36,38 +37,59 @@ const AuthForm = (props) => {
     //   </div>
     // </div>
     <div className="auth-container">
-	<div className="screen">
-		<div className="screen__content">
-			<form className="login" onSubmit={handleSubmit} name={name}>
-				<div className="login__field">
-					<i className="login__icon"><FaUserAlt/></i>
-          <label htmlFor="username"/>
-					<input type="text" name="username" className="login__input" placeholder="User name"/>
-				</div>
-				<div className="login__field">
-					<i className="login__icon"><FaUnlockAlt/></i>
-          <label htmlFor="password"/>
-					<input type="password" name="password" className="login__input" placeholder="Password"/>
-				</div>
-				<button type="submit"className="button login__submit">
-					<span className="button__text">Log In</span>
-					<i className="button__icon"><FaChevronRight/></i>
-				</button>
-        <button type="submit"className="button login__submit">
-					<span className="button__text">Sign Up</span>
-					<i className="button__icon"><FaChevronRight/></i>
-				</button>
-			</form>
-      {error && error.response && <div> {error.response.data} </div>}
-		</div>
-		<div className="screen__background">
-			<span className="screen__background__shape screen__background__shape4"></span>
-			<span className="screen__background__shape screen__background__shape3"></span>
-			<span className="screen__background__shape screen__background__shape2"></span>
-			<span className="screen__background__shape screen__background__shape1"></span>
-		</div>
-	</div>
-</div>
+      <div className="screen">
+        <div className="screen__content">
+          <form className="login" onSubmit={handleSubmit} name={name}>
+            <div className="login__field">
+              <i className="login__icon">
+                <FaUserAlt />
+              </i>
+              <label htmlFor="username" />
+              <input
+                type="text"
+                name="username"
+                className="login__input"
+                placeholder="User name"
+              />
+            </div>
+            <div className="login__field">
+              <i className="login__icon">
+                <FaUnlockAlt />
+              </i>
+              <label htmlFor="password" />
+              <input
+                type="password"
+                name="password"
+                className="login__input"
+                placeholder="Password"
+              />
+            </div>
+            {displayName === "Sign Up" ? (
+            <Link to="/login">
+              <div className="nav_button_back"><FaChevronLeft />Back</div>
+            </Link>
+          ) : (
+            <Link to="/signup">
+              <div className="nav__button_register"><FaChevronRight />Register</div>
+            </Link>
+          )}
+            <button type="submit" className="button login__submit">
+              <span className="button__text">{displayName}</span>
+              <i className="button__icon">
+                <FaChevronRight />
+              </i>
+            </button>
+          </form>
+          {error && error.response && <div> {error.response.data} </div>}
+        </div>
+        <div className="screen__background">
+          <span className="screen__background__shape screen__background__shape4"></span>
+          <span className="screen__background__shape screen__background__shape3"></span>
+          <span className="screen__background__shape screen__background__shape2"></span>
+          <span className="screen__background__shape screen__background__shape1"></span>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -19,8 +19,8 @@ const App = () => {
     dispatch(getMoodThunk(isLoggedIn))
     dispatch(getCategoriesThunk(isLoggedIn))
     dispatch(getActivitiesThunk(isLoggedIn))
-    dispatch(getTodaysMoodThunk())
-    dispatch(getTodaysActivityThunk())
+    dispatch(getTodaysMoodThunk(isLoggedIn))
+    dispatch(getTodaysActivityThunk(isLoggedIn))
   }, [isLoggedIn])
   return (
 

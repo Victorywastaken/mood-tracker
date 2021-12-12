@@ -6,7 +6,6 @@ import "./Navbar.css"
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>Reflection</h1>
     <nav>
       {isLoggedIn ? (
         <div>
