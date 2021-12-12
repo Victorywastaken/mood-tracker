@@ -5,8 +5,7 @@ import { addActivitiesThunk } from '../store/activities';
 const Activities = () => {
   const dispatch = useDispatch();
   const activities = useSelector(state => state.activities);
-  const [checkedState, setCheckedState] = useState(
-    new Array(activities.length).fill(false)) || [];
+  const [checkedState, setCheckedState] = useState(new Array(activities.length).fill(false)) || [];
 
 
   const handleOnChange = (position) => {
@@ -17,7 +16,6 @@ const Activities = () => {
   }
 
   const handleSubmit = () => {
-    console.log('hello');
     let activityData = [];
     for(let i = 0; i < checkedState.length; i++) {
       if(checkedState[i]) {
