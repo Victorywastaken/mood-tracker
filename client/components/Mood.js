@@ -5,6 +5,10 @@ import { setMoodThunk } from "../store/mood";
 import { getTodaysMoodThunk } from "../store/singleMood";
 const MonkeyLearn = require('monkeylearn')
 import history from '../history';
+import { BiHappyBeaming, BiHappyAlt, BiQuestionMark, BiMeh, BiSad } from "react-icons/bi";
+import { FaRegSadCry } from "react-icons/fa";
+
+import './Mood.css';
 
 // const ml = new MonkeyLearn('2c1f6c7d7d964c59e26cfe8f856be2a3dbe1cfda')
 // let model_id = 'cl_pi3C7JiL'
@@ -60,35 +64,34 @@ const Mood = () => {
     console.log('thanks for submitting');
   }
 
-  useState(() => {
-  if(todayMood.length > 0) {
-    history.push('/home');
-    console.log(todayMood)
-  }
-}, [todayMood])
-
 
   return (
     <MobileDiv>
-      <div className="mood-question" style={{textAlign: 'center'}}>
+      <div className="mood-question-container">
+        <div className="mood-screen-default">
       {todayMood
       ? <p>Your mood for today was submitted already. Your mood today was {todayMood.mood}</p>
       : <p>How are you feeling today?</p>
       }
         <div className="mood-container" style={{display: 'flex', justifyContent: 'center', gap: '5%'}}>
-          <div className="mood-button">
-            <button onClick={() => handleMood("great")}>GREAT</button>
+          <div className="mood-button" onClick={() => handleMood("great")}>
+            <BiHappyBeaming style={{fontSize: '50px', color: '#15B892'}}/>
+            <button>GREAT</button>
           </div>
           <div className="mood-button" onClick={() => handleMood("good")}>
+            <BiHappyAlt style={{fontSize: '50px', color: '#85C428'}}/>
             <button>GOOD</button>
           </div>
           <div className="mood-button" onClick={() => handleMood("meh")}>
+            <BiQuestionMark style={{fontSize: '50px', color: '#50ABCE'}}/>
             <button>MEH</button>
           </div>
           <div className="mood-button" onClick={() => handleMood("bad")}>
+            <BiMeh style={{fontSize: '50px', color: '#F8922F'}}/>
             <button>BAD</button>
           </div>
           <div className="mood-button" onClick={() => handleMood("awful")}>
+            <BiSad style={{fontSize: '50px', color: '#F2223B'}}/>
             <button>AWFUL</button>
           </div>
         </div>
@@ -109,6 +112,7 @@ const Mood = () => {
         </>
         :
         null }
+      </div>
     </MobileDiv>
   )
 }

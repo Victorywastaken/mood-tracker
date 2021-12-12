@@ -30,7 +30,7 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/mood">
-              {currentMood ? <Redirect to="/home" /> : <Mood/>}
+              {currentMood.length > 0 ? <Redirect to="/home" /> : <Mood/>}
             </Route>
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />
