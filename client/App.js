@@ -4,6 +4,7 @@ import MobileDiv from './Mobile'
 import Navbar from './components/Navbar'
 import Routes from './Routes'
 import { getMoodThunk } from './store/mood'
+import { getCategoriesThunk } from './store/activitiesCategory'
 import { getActivitiesThunk } from './store/activities'
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getMoodThunk(isLoggedIn))
+    dispatch(getCategoriesThunk(isLoggedIn))
     dispatch(getActivitiesThunk(isLoggedIn))
   }, [isLoggedIn])
   return (

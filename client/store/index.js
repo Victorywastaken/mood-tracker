@@ -6,8 +6,9 @@ import auth from './auth'
 import mood from './mood'
 import activities from './activities'
 import singleMood from './singleMood'
+import activitiesCategory from './activitiesCategory'
 
-const reducer = combineReducers({ auth, mood, singleMood, activities })
+const reducer = combineReducers({ auth, mood, singleMood, activities, activitiesCategory })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

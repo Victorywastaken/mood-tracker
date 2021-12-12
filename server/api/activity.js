@@ -8,6 +8,20 @@ router.get('/', requireToken, async (req, res, next) => {
   try {
     const { user } = req.body;
     const activities = await Activity.findAll({
+      where: {
+        userId: user.id
+      }
+    });
+    res.send(activities);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/categories', requireToken, async (req, res, next) => {
+  try {
+    const { user } = req.body;
+    const activities = await Activity.findAll({
       attributes: [
         [Sequelize.fn('DISTINCT', Sequelize.col('name')), 'name'],
       ],
@@ -24,11 +38,12 @@ router.get('/', requireToken, async (req, res, next) => {
 router.post('/batch', requireToken, async (req, res, next) => {
   try {
     const { user, activities } = req.body;
-    console.log(user);
 
     for(const activity of activities){
       activity.userId = user.id;
     }
+
+    console.log(activities);
 
     const bulkActivity = await Activity.bulkCreate(activities, {
       individualHooks: true,

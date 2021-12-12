@@ -4,7 +4,7 @@ import { addActivitiesThunk } from '../store/activities';
 
 const Activities = () => {
   const dispatch = useDispatch();
-  const activities = useSelector(state => state.activities);
+  const activities = useSelector(state => state.activitiesCategory);
   const [checkedState, setCheckedState] = useState(new Array(activities.length).fill(false)) || [];
 
 
