@@ -1,0 +1,52 @@
+body {
+  font-family: Montserrat, sans-serif;
+}
+
+.home-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.status-screen {
+  background: white;
+	position: relative;
+	height: 150px;
+	width: 460px;
+  padding: 20px;
+  color: black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date-container {
+  border:black solid 1px;
+  width: 90px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day {
+  font-size: 3rem;
+}
+
+.calendar-container {
+  background: white;
+	position: relative;
+	height: 600px;
+	width: 460px;
+  padding: 20px;
+  color: black;
+}
