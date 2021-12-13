@@ -17,19 +17,42 @@ export const Home = props => {
   const currentActivity = useSelector(state => state.singleActivity)
   const username = useSelector((state) => state.auth.username)
 
+  const [color, setColor] = React.useState(currentMood.mood) || '';
+
   useEffect(() => {
     dispatch(getTodaysMoodThunk(isLoggedIn))
     dispatch(getTodaysActivityThunk(isLoggedIn))
+    setColor(currentMood.mood)
   }, [isLoggedIn])
 
-  console.log(currentMood)
+  const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  const d = new Date();
+  let day = d.getDate();
+  let name = month[d.getMonth()];
+
+  const DateContainer = () => {
+    return (
+      currentMood.mood
+      ? (
+      <div className={`date-container ${currentMood.mood}`}>
+        <h1 className='day'>{day}</h1>
+        <p>{name}</p>
+      </div>
+    ) : (
+      <div className='date-container'>
+        <h1 className='day'>{day}</h1>
+        <p>{name}</p>
+      </div>
+    )
+    )
+  }
+
+  console.log(currentMood.mood)
   return (
     <div className='home-container'>
       <header className='status-screen'>
-        <div className='date-container'>
-          <h1 className='day'>12</h1>
-          <p>DEC</p>
-        </div>
+        <DateContainer />
         <div className='mood-container'>
           <h1>{currentMood.mood}</h1>
           {currentMood.description === '' ? <p>No entry was added.</p> : <p>{currentMood.description}</p>}

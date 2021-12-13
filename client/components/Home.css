@@ -27,7 +27,6 @@ body {
 }
 
 .date-container {
-  border:black solid 1px;
   width: 90px;
   height: 100px;
   padding: 10px;
@@ -38,8 +37,14 @@ body {
   align-items: center;
 }
 
-.day {
+
+.date-container h1 {
   font-size: 3rem;
+  color: white;
+}
+
+.date-container p {
+  color: white;
 }
 
 .calendar-container {
@@ -49,4 +54,24 @@ body {
 	width: 460px;
   padding: 20px;
   color: black;
+}
+
+.great {
+  background: #15B892;
+}
+
+.good {
+  background: #85C428;
+}
+
+.meh {
+  background: #50ABCE;
+}
+
+.bad {
+  background: #F8922F;
+}
+
+.awful {
+  background: #F2223B;
 }
