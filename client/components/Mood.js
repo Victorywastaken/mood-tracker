@@ -94,7 +94,7 @@ const Mood = () => {
                   onClick={() => handleMood("great")}
                 />
               </div>
-              <text>I'm feeling GREAT</text>
+              <p>I'm feeling GREAT</p>
             </div>
             <div className="mood-button">
               <div className="mood-question-icon">
@@ -103,7 +103,7 @@ const Mood = () => {
                   onClick={() => handleMood("good")}
                 />
               </div>
-              <text>I'm feeling GOOD</text>
+              <p>I'm feeling GOOD</p>
             </div>
             <div className="mood-button">
               <div className="mood-question-icon">
@@ -112,16 +112,16 @@ const Mood = () => {
                   onClick={() => handleMood("meh")}
                 />
               </div>
-              <text>I'm feeling MEH</text>
+              <p>I'm feeling MEH</p>
             </div>
             <div className="mood-button">
               <div className="mood-question-icon">
                 <BiMeh
-                  className='meh'
+                  className="meh"
                   style={{ fontSize: "50px", color: "#F8922F" }}
                   onClick={() => handleMood("bad")}
-                  />
-                  <text>I'm feeling BAD</text>
+                />
+                <p>I'm feeling BAD</p>
               </div>
             </div>
             <div className="mood-button">
@@ -130,14 +130,14 @@ const Mood = () => {
                   style={{ fontSize: "50px", color: "#F2223B" }}
                   onClick={() => handleMood("awful")}
                 />
-                <text>I'm feeling AWFUL</text>
+                <p>I'm feeling AWFUL</p>
               </div>
             </div>
           </div>
-          <br/>
+          <br />
           {mood ? (
             <>
-              <h2>{mood}</h2>
+              <h2>{mood[0].toUpperCase() + mood.slice(1, mood.length)}</h2>
               <h4>{moodDescriptionObj[mood]}</h4>
               <section>Would you like to add some comments? (optional)</section>
               <textarea
@@ -149,7 +149,14 @@ const Mood = () => {
                 onChange={handleChange}
               />
               <br />
-              <input type="submit" value="Submit" onClick={handleSubmit} />
+              <div className="mood-submit-button">
+                <input
+                  id={`button-65${color}`}
+                  type="submit"
+                  value="Submit"
+                  onClick={handleSubmit}
+                />
+              </div>
             </>
           ) : null}
         </div>
