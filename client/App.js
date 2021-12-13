@@ -10,6 +10,8 @@ import { getActivitiesThunk } from './store/activities'
 import { getTodaysActivityThunk } from './store/singleActivity'
 
 const App = () => {
+
+  const [loaded, setLoaded] = React.useState(false)
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.auth.id)
   const currentMood = useSelector(state => state.singleMood)
@@ -21,14 +23,16 @@ const App = () => {
     dispatch(getActivitiesThunk(isLoggedIn))
     dispatch(getTodaysMoodThunk(isLoggedIn))
     dispatch(getTodaysActivityThunk(isLoggedIn))
+    setLoaded(true)
   }, [isLoggedIn])
-  return (
 
+  return loaded ? (
       <MobileDiv>
         <Navbar />
         <Routes currentMood={currentMood} currentActivity={currentActivity}/>
       </MobileDiv>
-
+  ) : (
+    <div>Loading...</div>
   )
 }
 

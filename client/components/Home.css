@@ -8,7 +8,7 @@ body {
 	justify-content: center;
 	min-height: 100vh;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .status-screen {
@@ -50,12 +50,13 @@ body {
 .calendar-container {
   background: white;
 	position: relative;
-	height: 600px;
+	height: 400px;
 	width: 460px;
   padding: 20px;
   color: black;
   display: flex;
   justify-content: center;
+  border-radius: 25px;
 }
 
 .great {

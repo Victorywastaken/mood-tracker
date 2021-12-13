@@ -20,21 +20,17 @@ class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
   }
-
   render() {
-    const { isLoggedIn, currentMood, currentActivity } = this.props;
-
+    const { isLoggedIn, currentMood } = this.props;
     return (
       <div>
         {isLoggedIn ? (
           <Switch>
             <Route exact path="/">
-              {isLoggedIn ? <Redirect to="/home" /> : <Login />}
+              <Redirect to="/mood" />
             </Route>
             <Route path="/home" component={Home}/>
-            <Route path="/mood">
-              {Object.keys(currentMood).length > 0 ? <Redirect to="/home" /> : <Mood />}
-            </Route>
+            <Route path="/mood" render={(props) => <Mood {...props} currentMood={currentMood} />}/>
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />
             <Route path="/pie" component={MyResponsivePie} />

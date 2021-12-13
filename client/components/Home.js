@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import Calendar from 'react-calendar'
+import {logout} from '../store'
 import './Home.css'
 import './Calendar.css';
 import moodColors from '../helpers/moodColors';
+import { getMoodThunk } from '../store/mood'
 import { getTodaysMoodThunk } from '../store/singleMood';
 import { getTodaysActivityThunk } from '../store/singleActivity';
 
@@ -20,6 +22,7 @@ export const Home = props => {
   const [date, setDate] = React.useState(new Date().toISOString().slice(0, 10)) || '';
 
   useEffect(() => {
+    dispatch(getMoodThunk(isLoggedIn))
     dispatch(getTodaysMoodThunk(isLoggedIn))
     dispatch(getTodaysActivityThunk(isLoggedIn))
     setColor(currentMood?.mood)
@@ -31,7 +34,10 @@ export const Home = props => {
   let day = date.slice(8,10);
   let name = month[date.slice(5,7) - 1];
 
-  currentMood = allMoods.find(mood => mood.date === date)
+  if(allMoods.length > 0){
+    currentMood = allMoods.find(mood => mood.date === date) || []
+  }
+
 
   const DateContainer = () => {
     return (
@@ -59,12 +65,16 @@ export const Home = props => {
     }
   }
 
+  const handleLogout = () => {
+    dispatch(logout());
+  }
+
   return (
     <div className='home-container'>
       <header className={`status-screen ${currentMood?.mood}-background`}>
         <DateContainer />
         <div className='mood-container'>
-          <h1>{currentMood?.mood}</h1>
+          <h1 >{currentMood?.mood}</h1>
           {!currentMood?.description ? <p>No entry was added.</p> : <p>{currentMood?.description}</p>}
         </div>
       </header>
@@ -78,6 +88,11 @@ export const Home = props => {
             }}
           />
         </div>
+      </div>
+      <div className="logout-container">
+        <a href="#" onClick={handleLogout}>
+          Log out
+        </a>
       </div>
     </div>
   )

@@ -22,7 +22,7 @@ import "./Mood.css";
 //     console.log(res.body)
 // })
 
-const Mood = () => {
+const Mood = (props) => {
   const dispatch = useDispatch();
   const [mood, setMood] = useState("");
   const [description, setDescription] = useState("");
@@ -68,6 +68,12 @@ const Mood = () => {
     dispatch(setMoodThunk({ mood, description }));
     history.push('/activities');
   };
+
+  useEffect(() => {
+    if(Object.keys(props.currentMood).length > 0) {
+      history.push('/home');
+    }
+  }, [props.currentMood]);
 
   return (
     <MobileDiv>
