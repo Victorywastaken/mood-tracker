@@ -8,6 +8,7 @@ import moodColors from "../helpers/moodColors";
 import { getMoodThunk } from "../store/mood";
 import { getTodaysMoodThunk } from "../store/singleMood";
 import { getTodaysActivityThunk } from "../store/singleActivity";
+import history from "../history";
 
 export const Home = (props) => {
   const dispatch = useDispatch();
@@ -101,7 +102,12 @@ export const Home = (props) => {
             }}
           />
           <div className={`stats-container`}>
-            <button className={`stats-button ${currentMood?.mood}`}>See Stats</button>
+            <button
+              className={`stats-button ${currentMood?.mood}`}
+              onClick={() => history.push("/calendar")}
+            >
+              See Stats
+            </button>
           </div>
         </div>
       </div>
