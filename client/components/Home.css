@@ -55,8 +55,10 @@ body {
   padding: 20px;
   color: black;
   display: flex;
-  justify-content: center;
   border-radius: 25px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .great {
@@ -78,3 +80,56 @@ body {
 .awful {
   background: #F2223B;
 }
+
+.logout-container a {
+  color: #696969;
+  text-decoration: none;
+}
+
+.stats-button {
+  background-color: #2f80ed;
+  appearance: none;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  height: 42px;
+  letter-spacing: normal;
+  line-height: 1;
+  outline: none;
+  overflow: hidden;
+  padding: 14px 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.great {
+  background-color: #15B892;
+}
+.good{
+  background-color: #85C428;
+}
+.meh{
+  background-color: #50ABCE;
+}
+.bad{
+  background-color: #F8922F;
+}
+.awful {
+  background-color: #F2223B;
+}
+

@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import "./Navbar.css"
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
@@ -15,9 +14,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/activities">Activities</Link>
           <Link to="/calendar">Calendar</Link>
           <Link to="/pie">Pie Chart</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
         </div>
       ) : (
         <div>

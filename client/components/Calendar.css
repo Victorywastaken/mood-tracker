@@ -38,6 +38,9 @@
   height: 44px;
   margin-bottom: 1em;
 }
+.react-calendar__navigation__label{
+  font-size: 18px;
+}
 .react-calendar__navigation button {
   min-width: 44px;
   background: none;
