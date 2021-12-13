@@ -18,6 +18,7 @@ export const Home = props => {
   const username = useSelector((state) => state.auth.username)
 
   const [color, setColor] = React.useState(currentMood.mood) || '';
+  const [date, setDate] = React.useState(new Date());
 
   useEffect(() => {
     dispatch(getTodaysMoodThunk(isLoggedIn))
@@ -51,7 +52,7 @@ export const Home = props => {
   console.log(currentMood.mood)
   return (
     <div className='home-container'>
-      <header className='status-screen'>
+      <header className={`status-screen ${currentMood.mood}-background`}>
         <DateContainer />
         <div className='mood-container'>
           <h1>{currentMood.mood}</h1>
