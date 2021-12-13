@@ -9,6 +9,10 @@ const Activity = db.define('activity', {
       notEmpty: true
     }
   },
+  date: {
+    type: Sequelize.DATEONLY,
+    defaultValue: Sequelize.NOW
+  }
 })
 
 module.exports = Activity

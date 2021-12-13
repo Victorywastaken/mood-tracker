@@ -41,7 +41,7 @@ const Calendar = () => {
     <div>Loading...</div>
     :
     <div style={{height: '40vh'}}>
-      <div className='calendar-container' style={{display: "flex", justifyContent: "center", gap: '2vh'}}>
+      <div className='calendar-legend-container' style={{display: "flex", justifyContent: "center", gap: '2vh'}}>
         <button onClick={() => setYear(year - 1)}>Previous Year</button>
         <div className="calendar-legend-item" style={{backgroundColor: '#F2223B'}}>awful</div>
         <div className="calendar-legend-item" style={{backgroundColor: '#F8922F'}}>bad</div>

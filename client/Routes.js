@@ -28,13 +28,12 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route
-              path="/home"
-              // component={Home}
-              render={() => <Home currentMood={currentMood} currentActivity={currentActivity}/>}
-            />
+            <Route exact path="/">
+              {isLoggedIn ? <Redirect to="/home" /> : <Login />}
+            </Route>
+            <Route path="/home" component={Home}/>
             <Route path="/mood">
-              {currentMood.length > 0 ? <Redirect to="/home" /> : <Mood />}
+              {Object.keys(currentMood).length > 0 ? <Redirect to="/home" /> : <Mood />}
             </Route>
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />

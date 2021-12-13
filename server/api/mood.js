@@ -25,14 +25,14 @@ router.get("/", requireToken, async (req, res, next) => {
 router.get("/today", requireToken, async (req, res, next) => {
   try {
     const { user } = req.body;
-    console.log(user);
     let todaysMoods = await Mood.findOne({
       where: {
         userId: user.id,
-        createdAt: {
-          [Op.gte]: TODAY_START,
-          [Op.lt]: NOW,
-        }
+        // createdAt: {
+        //   [Op.gte]: TODAY_START,
+        //   [Op.lt]: NOW,
+        // }
+        date: new Date().toISOString().slice(0, 10),
       },
     });
     res.send(todaysMoods);

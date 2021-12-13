@@ -116,7 +116,6 @@ const Mood = () => {
             <div className="mood-button">
               <div className="mood-question-icon">
                 <BiMeh
-                  className="meh"
                   style={{ fontSize: "50px", color: "#F8922F" }}
                   onClick={() => handleMood("bad")}
                 />

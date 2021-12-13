@@ -44,10 +44,11 @@ router.get("/today", requireToken, async (req, res, next) => {
     const todaysActivity = await Activity.findAll({
       where: {
         userId: user.id,
-        createdAt: {
-          [Op.gte]: TODAY_START,
-          [Op.lt]: NOW,
-        }
+        // createdAt: {
+        //   [Op.gte]: TODAY_START,
+        //   [Op.lt]: NOW,
+        // }
+        date: new Date().toISOString().slice(0, 10),
       },
     });
     res.send(todaysActivity);
