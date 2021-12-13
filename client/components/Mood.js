@@ -12,7 +12,6 @@ import {
   BiMeh,
   BiSad,
 } from "react-icons/bi";
-import { FaRegSadCry } from "react-icons/fa";
 
 import "./Mood.css";
 
@@ -67,7 +66,7 @@ const Mood = () => {
 
   const handleSubmit = () => {
     dispatch(setMoodThunk({ mood, description }));
-    console.log("thanks for submitting");
+    history.push('/activities');
   };
 
   return (
