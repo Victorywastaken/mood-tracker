@@ -49,14 +49,14 @@ export const Home = props => {
     )
   }
 
-  console.log(currentMood.mood)
+  console.log(currentMood.description)
   return (
     <div className='home-container'>
       <header className={`status-screen ${currentMood.mood}-background`}>
         <DateContainer />
         <div className='mood-container'>
           <h1>{currentMood.mood}</h1>
-          {currentMood.description === '' ? <p>No entry was added.</p> : <p>{currentMood.description}</p>}
+          {!currentMood.description ? <p>No entry was added.</p> : <p>{currentMood.description}</p>}
         </div>
       </header>
       <div className='calendar-screen'>
