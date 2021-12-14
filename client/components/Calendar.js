@@ -49,12 +49,12 @@ const Calendar = () => {
  * This change is ONLY on front end, the database is not affected.
  */
 
-  moodData[moodData.length] = {
+  moodData.push = {
     day: `${year+1000}-01-01`,
     mood: "awful",
     value: 1,
   }
-  moodData[moodData.length] = {
+  moodData.push = {
     day: `${year+1000}-01-02`,
     mood: "great",
     value: 5,
