@@ -13,7 +13,6 @@ import Loader from "./Loader";
 
 const currentDate = new Date();
 
-// console.log(currentDate);
 export const Home = (props) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.id);
@@ -27,8 +26,6 @@ export const Home = (props) => {
   const [load, setLoad] = React.useState(false);
 
   //why is the date the date of tomorrow?
-  // console.log(date);
-
 
   useEffect(() => {
     dispatch(getMoodThunk(isLoggedIn));

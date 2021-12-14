@@ -35,8 +35,6 @@ const Calendar = () => {
       value: moodKey[mood.mood],
     };
   });
-  console.log(moodData);
-
 
 /**
  * This is a hack created to ensure the mood color is correct if there is only
