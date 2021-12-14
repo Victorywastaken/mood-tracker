@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Mood from "./components/Mood";
 import Stats from "./components/Stats";
 import Activities from "./components/Activities";
+import Loader from "./components/Loader";
 import { me } from "./store";
 
 /**
@@ -30,7 +31,7 @@ class Routes extends Component {
             <Route exact path="/">
               <Redirect to="/mood" />
             </Route>
-            <Route path="/home" component={Home}/>
+            <Route path="/home" render={(props) => <Home {...props} currentMood={currentMood}/>}/>
             <Route path="/mood" render={(props) => <Mood {...props} currentMood={currentMood} />}/>
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />
@@ -44,6 +45,9 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
           </Switch>
         )}
+        <Switch>
+          <Route path="/loader" component={Loader} />
+        </Switch>
       </div>
     );
   }

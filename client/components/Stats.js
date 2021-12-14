@@ -5,6 +5,7 @@ import Calendar from "./Calendar";
 import "./Stats.css";
 import history from "../history";
 import { BiArrowBack, BiCalendarEvent, BiPieChart } from "react-icons/bi";
+import Loader from "./Loader";
 
 const Stats = (props) => {
   const allMoods = useSelector((state) => state.mood);
@@ -59,7 +60,7 @@ const Stats = (props) => {
     </div>
   ) : (
     <div>
-      <h1>Loading...</h1>
+      <Loader/>
     </div>
   );
 };

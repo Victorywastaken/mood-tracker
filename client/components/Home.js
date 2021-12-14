@@ -9,7 +9,11 @@ import { getMoodThunk } from "../store/mood";
 import { getTodaysMoodThunk } from "../store/singleMood";
 import { getTodaysActivityThunk } from "../store/singleActivity";
 import history from "../history";
+import Loader from "./Loader";
 
+const currentDate = new Date();
+
+console.log(currentDate);
 export const Home = (props) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.id);
@@ -19,14 +23,20 @@ export const Home = (props) => {
   const username = useSelector((state) => state.auth.username);
 
   const [color, setColor] = React.useState(currentMood.mood) || "";
-  const [date, setDate] =
-    React.useState(new Date().toISOString().slice(0, 10)) || "";
+  const [date, setDate] = React.useState("");
+  const [load, setLoad] = React.useState(false);
+
+  //why is the date the date of tomorrow?
+  console.log(date);
+
 
   useEffect(() => {
     dispatch(getMoodThunk(isLoggedIn));
     dispatch(getTodaysMoodThunk(isLoggedIn));
     dispatch(getTodaysActivityThunk(isLoggedIn));
     setColor(currentMood?.mood);
+    setDate(currentDate.toISOString().slice(0, 10));
+    setLoad(true);
   }, [isLoggedIn]);
 
   const month = [
@@ -79,12 +89,12 @@ export const Home = (props) => {
     dispatch(logout());
   };
 
-  return (
+  return load ? (
     <div className="home-container">
       <header className={`status-screen ${currentMood?.mood}-background`}>
         <DateContainer />
         <div className="mood-container">
-          <h1>{currentMood?.mood}</h1>
+          <h1>{currentMood?.mood || 'None'}</h1>
           {!currentMood?.description ? (
             <p>You didn't write an entry for today.</p>
           ) : (
@@ -117,6 +127,8 @@ export const Home = (props) => {
         </a>
       </div>
     </div>
+  ) : (
+    <Loader/>
   );
 };
 

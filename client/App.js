@@ -8,6 +8,7 @@ import { getTodaysMoodThunk } from "./store/singleMood";
 import { getCategoriesThunk } from './store/activitiesCategory'
 import { getActivitiesThunk } from './store/activities'
 import { getTodaysActivityThunk } from './store/singleActivity'
+import Loader from './components/Loader'
 
 const App = () => {
 
@@ -32,7 +33,7 @@ const App = () => {
         <Routes currentMood={currentMood} currentActivity={currentActivity}/>
       </MobileDiv>
   ) : (
-    <div>Loading...</div>
+    <Loader />
   )
 }
 

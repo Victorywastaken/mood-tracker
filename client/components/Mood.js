@@ -69,6 +69,8 @@ const Mood = (props) => {
     history.push('/activities');
   };
 
+  console.log(props.currentMood);
+  console.log(Object.keys(props.currentMood).length > 0);
   useEffect(() => {
     if(Object.keys(props.currentMood).length > 0) {
       history.push('/home');

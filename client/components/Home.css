@@ -27,6 +27,7 @@ body {
 }
 
 .date-container {
+  background-color: black;
   width: 90px;
   height: 100px;
   padding: 10px;

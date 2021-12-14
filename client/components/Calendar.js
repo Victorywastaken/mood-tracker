@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMoodThunk } from "../store/mood";
 import { ResponsiveCalendar } from "@nivo/calendar";
+import Loader from "./Loader";
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -36,7 +37,7 @@ const Calendar = () => {
   });
 
   return !loaded ? (
-    <div>Loading...</div>
+    <Loader/>
   ) : (
     <div>
       <div
