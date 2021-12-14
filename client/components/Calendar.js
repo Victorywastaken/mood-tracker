@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMoodThunk } from "../store/mood";
+import mood, { getMoodThunk } from "../store/mood";
 import { ResponsiveCalendar } from "@nivo/calendar";
 import Loader from "./Loader";
 
@@ -11,11 +11,11 @@ import Loader from "./Loader";
 // you'll often use just a few of them.
 const Calendar = () => {
   const moodKey = {
-    awful: 0,
-    bad: 1,
-    meh: 2,
-    good: 3,
-    great: 4,
+    awful: 1,
+    bad: 2,
+    meh: 3,
+    good: 4,
+    great: 5,
   };
 
   const [loaded, setLoaded] = useState(false);
@@ -35,7 +35,30 @@ const Calendar = () => {
       value: moodKey[mood.mood],
     };
   });
+  console.log(moodData);
 
+
+/**
+ * This is a hack created to ensure the mood color is correct if there is only
+ * one mood rendered so far.
+ *
+ * Calendar heatmap component in D3.js renders based on proportion. For the
+ * right color to appear, the calendar needs a base lowest value and a highest
+ * value.
+ *
+ * This change is ONLY on front end, the database is not affected.
+ */
+
+  moodData[moodData.length] = {
+    day: `${year+1000}-01-01`,
+    mood: "awful",
+    value: 1,
+  }
+  moodData[moodData.length] = {
+    day: `${year+1000}-01-02`,
+    mood: "great",
+    value: 5,
+  }
   return !loaded ? (
     <Loader/>
   ) : (
