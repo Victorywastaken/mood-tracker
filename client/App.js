@@ -28,7 +28,7 @@ const App = () => {
 
   return loaded ? (
       <MobileDiv>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes currentMood={currentMood} currentActivity={currentActivity}/>
       </MobileDiv>
   ) : (
