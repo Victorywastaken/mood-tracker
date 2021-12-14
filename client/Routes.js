@@ -10,6 +10,7 @@ import Stats from "./components/Stats";
 import Activities from "./components/Activities";
 import Loader from "./components/Loader";
 import { me } from "./store";
+import LandingPage from "./components/LandingPage";
 
 /**
  * COMPONENT
@@ -46,7 +47,7 @@ class Routes extends Component {
           </Switch>
         )}
         <Switch>
-          <Route path="/loader" component={Loader} />
+          <Route path="/Welcome" component={LandingPage} />
         </Switch>
       </div>
     );
