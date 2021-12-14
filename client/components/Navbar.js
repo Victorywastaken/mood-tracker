@@ -13,7 +13,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/mood">Mood</Link>
           <Link to="/activities">Activities</Link>
           <Link to="/calendar">Calendar</Link>
-          <Link to="/pie">Pie Chart</Link>
         </div>
       ) : (
         <div>

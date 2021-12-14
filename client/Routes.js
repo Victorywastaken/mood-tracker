@@ -6,6 +6,7 @@ import Calendar from "./components/Calendar";
 import MyResponsivePie from "./components/PieGraph";
 import Home from "./components/Home";
 import Mood from "./components/Mood";
+import Stats from "./components/Stats";
 import Activities from "./components/Activities";
 import { me } from "./store";
 
@@ -34,6 +35,7 @@ class Routes extends Component {
             <Route path="/calendar" component={Calendar} />
             <Route path="/activities" component={Activities} />
             <Route path="/pie" component={MyResponsivePie} />
+            <Route path="/stats" component={Stats} />
           </Switch>
         ) : (
           <Switch>

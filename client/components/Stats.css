@@ -1,0 +1,30 @@
+.all-stats-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.all-stats-screens{
+  max-width: 1000px;
+  margin: auto;
+  width: 100%;
+}
+.stats-button-container{
+  display: flex;
+  justify-content:space-between;
+  gap: 5px;
+}
+.stats-button-container > div:first-of-type{
+  flex-grow: 1;
+}
+.go-back-button{
+  background-color: #2f80ed;
+  appearance: none;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px;
+  color: #fff;
+  font-size: 1.5rem;
+
+}

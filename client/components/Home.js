@@ -104,7 +104,7 @@ export const Home = (props) => {
           <div className={`stats-container`}>
             <button
               className={`stats-button ${currentMood?.mood}`}
-              onClick={() => history.push("/calendar")}
+              onClick={() => history.push("/stats")}
             >
               See Stats
             </button>
