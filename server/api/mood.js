@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const Op = require('Sequelize').Op;
-const TODAY_START = new Date().setHours(0, 0, 0, 0);
-const NOW = new Date();
+// const Op = require('sequelize').Op;
+// const TODAY_START = new Date().setHours(0, 0, 0, 0);
+// const NOW = new Date();
 const {
   models: { Mood },
 } = require("../db");
