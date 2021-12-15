@@ -11,7 +11,9 @@ import singleActivity from './singleActivity'
 
 const reducer = combineReducers({ auth, mood, singleMood, activities, activitiesCategory, singleActivity })
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
+  applyMiddleware(thunkMiddleware,
+    //  createLogger({collapsed: true})
+  )
 )
 const store = createStore(reducer, middleware)
 
