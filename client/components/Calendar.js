@@ -39,11 +39,9 @@ const Calendar = () => {
 /**
  * This is a hack created to ensure the mood color is correct if there is only
  * one mood rendered so far.
- *
  * Calendar heatmap component in D3.js renders based on proportion. For the
  * right color to appear, the calendar needs a base lowest value and a highest
  * value.
- *
  * This change is ONLY on front end, the database is not affected.
  */
 
